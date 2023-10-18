@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 function Header() {
   return (
-    <Navbar expand="lg" className="bg-primary">
+    <Navbar style={{zIndex:'1'}}  expand="lg" className="bg-primary">
     <Container>
       <Navbar.Brand><Link to={'/'} style={{textDecoration:'none',color:'white'}}>E Cart</Link></Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
