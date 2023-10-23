@@ -3,13 +3,19 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Col,Row,Card,Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { removeFromWishlist } from '../redux/slices/wishlistSlice'
+import { addToCart } from '../redux/slices/cartSlice'
 
 
 
 
-function Cart() {
+function Wishlist() {
   const wishlistArray = useSelector((state)=>state.wishlistReducer)
   const dispatch=useDispatch()
+  const handleWishlistCart = (product)=>{
+    dispatch(addToCart(product))
+    dispatch(removeFromWishlist(product.id))
+  }
+
 
   return (
     <div style={{marginTop:'100px'}}>
@@ -30,7 +36,7 @@ function Cart() {
           <Button onClick={()=>dispatch(removeFromWishlist(product.id))}  className='btn btn-light'>
           <i class="fa-solid fa-trash fa-2x" style={{color:'red'}}></i>
           </Button>
-          <Button className='btn btn-light'>
+          <Button onClick={handleWishlistCart} className='btn btn-light'>
             <i className='fa-solid fa-cart-plus text-success fa-2x'></i>
           </Button>
 
@@ -49,4 +55,4 @@ function Cart() {
   )
 }
 
-export default Cart
+export default Wishlist

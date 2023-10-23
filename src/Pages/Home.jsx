@@ -3,11 +3,13 @@ import { Col,Row,Card,Button } from 'react-bootstrap'
 import useFetch from '../Hooks/useFetch'
 import { useDispatch } from 'react-redux'
 import { addToWishlist } from '../redux/slices/wishlistSlice'
+import { addToCart } from '../redux/slices/cartSlice'
 
 
 function Home() {
   const data=useFetch("https://dummyjson.com/products")
   const dispatch = useDispatch()
+ 
   
   return (
     <Row className='ms-5' style={{marginTop:'100px'}}>
@@ -27,7 +29,7 @@ function Home() {
           <Button onClick={()=>dispatch(addToWishlist(product))} className='btn btn-light'>
             <i className='fa-solid fa-heart text-danger fa-2x'></i>
           </Button>
-          <Button className='btn btn-light'>
+          <Button onClick={()=>dispatch(addToCart(product))} className='btn btn-light'>
             <i className='fa-solid fa-cart-plus text-success fa-2x'></i>
           </Button>
 
