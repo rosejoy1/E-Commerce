@@ -36,7 +36,7 @@ function Wishlist() {
           <Button onClick={()=>dispatch(removeFromWishlist(product.id))}  className='btn btn-light'>
           <i class="fa-solid fa-trash fa-2x" style={{color:'red'}}></i>
           </Button>
-          <Button onClick={handleWishlistCart} className='btn btn-light'>
+          <Button onClick={()=>handleWishlistCart(product)} className='btn btn-light'>
             <i className='fa-solid fa-cart-plus text-success fa-2x'></i>
           </Button>
 
@@ -55,4 +55,4 @@ function Wishlist() {
   )
 }
 
-export default Wishlist
+export default Wishlist
